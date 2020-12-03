@@ -16,7 +16,7 @@ public class Main {
     public static Connection db = null;
 
     public static void main(String[] args) {
-        openDatabase("adnd35.db");
+        openDatabase("WWTBAM.db");
 
         ResourceConfig config = new ResourceConfig();
         config.packages("controllers");
