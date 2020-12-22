@@ -7,14 +7,14 @@ function getMoneyTokens(){
         } else if (data.hasOwnProperty('rewards')) {
             let moneyHTML = `<table id="money">`;
             for(let r of data.rewards){
-                moneyHTML += `<tr id="${r.id}" onclick=console.log(this.id);>`+
+                moneyHTML += `<tr id="${r.id}" onclick=getQuestion(this.id);>`+
                     `<td>${r.id}</td>`+
                     `<td>${r.value}</td>`+
                     `</tr>`;
             }
             moneyHTML+=`</table>`;
             document.getElementById("money").innerHTML = moneyHTML;
-            
+
         }
     });
 }
@@ -39,6 +39,7 @@ function getVideo(){
 }
 
 function stop(e) {
+    let video = document.querySelector("#videoElement");
     let stream = video.srcObject;
     let tracks = stream.getTracks();
 
@@ -50,8 +51,13 @@ function stop(e) {
     video.srcObject = null;
 }
 
+
 function runThese(){
     getVideo();
     //clickCell();
     getMoneyTokens();
+}
+
+function getQuestion(id){
+    console.log(id);
 }
